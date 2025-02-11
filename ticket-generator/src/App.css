@@ -1,3 +1,7 @@
+body {
+	background-color: #05252c;
+}
+
 .app {
 	max-width: 600px;
 	margin: 0 auto;

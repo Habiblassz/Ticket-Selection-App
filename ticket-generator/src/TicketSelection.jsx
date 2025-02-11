@@ -1,4 +1,3 @@
-// TicketSelection.jsx
 import React, { useState } from "react";
 import "./TicketSelection.css";
 
@@ -14,7 +13,7 @@ const TicketSelection = ({ onNext }) => {
 
 	const ticketOptions = [
 		{ type: "REGULAR", price: 0, label: "REGULAR ACCESS", availability: 20 },
-		{ type: "VIP", price: 50, label: "VIP ACCESS", availability: 20 },
+		{ type: "VIP", price: 150, label: "VIP ACCESS", availability: 20 },
 		{ type: "VVIP", price: 150, label: "VVIP ACCESS", availability: 20 },
 	];
 
@@ -28,14 +27,18 @@ const TicketSelection = ({ onNext }) => {
 					</div>
 					<div className="progress-bar"></div>
 				</div>
-				<p className="event-info">
-					Join us for an unforgettable experience at [Event Name]. Secure your
-					spot now.
-				</p>
-				<p className="location-date">
-					<span className="location">↑ [Event Location]</span> || March 15, 2025
-					| 7:00 PM
-				</p>
+				<div className="event-block">
+					<h2 className="event-title">Techember Fest &rdquo;25</h2>
+					<p className="event-info">
+						Join us for an unforgettable experience at <br /> [Event Name].
+						Secure your spot now.
+					</p>
+					<p className="location-date">
+						<span className="location">↑ [Event Location]</span> || March 15,
+						2025 | 7:00 PM
+					</p>
+				</div>
+				<div className="horizontal-line"></div>
 
 				<div className="select-ticket">
 					<p className="ticket-type-title">Select Ticket Type:</p>
@@ -47,12 +50,14 @@ const TicketSelection = ({ onNext }) => {
 									ticketType === option.type ? "selected" : ""
 								}`}
 								onClick={() => setTicketType(option.type)}>
-								<div className="ticket-label">{option.label}</div>
-								<div className="ticket-price">
-									{option.price === 0 ? "Free" : `$${option.price}`}
-								</div>
-								<div className="ticket-availability">
-									{option.availability} left!
+								<div className="ticket-details">
+									<div className="ticket-price">
+										{option.price === 0 ? "Free" : `$${option.price}`}
+									</div>
+									<div className="ticket-label">{option.label}</div>
+									<div className="ticket-availability">
+										{option.availability}/52
+									</div>
 								</div>
 							</button>
 						))}
