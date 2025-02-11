@@ -1,0 +1,172 @@
+/* TicketSelection.css */
+.ticket-selection {
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	min-height: 95vh;
+	background: #111;
+	font-family: sans-serif;
+	color: #eee;
+}
+
+.ticket-container {
+	background: #222;
+	padding: 30px;
+	border-radius: 10px;
+	box-shadow: 0 5px 10px rgba(0, 0, 0, 0.2);
+	width: 400px;
+}
+
+.ticket-selection .header {
+	display: flex;
+	flex-direction: column;
+	align-items: flex-start;
+	margin-bottom: 20px;
+}
+
+.ticket-selection .header .flex-header {
+	display: flex;
+	justify-content: space-between;
+	align-items: center;
+	width: 100%;
+	height: 100%;
+}
+
+.ticket-selection .progress-bar {
+	width: 33.33%;
+	height: 2px;
+	background-color: #0af;
+	border-radius: 5px;
+	margin-top: 7px;
+	margin-bottom: 10px;
+}
+
+.step {
+	font-size: 14px;
+	color: #888;
+	align-self: flex-end;
+}
+
+.title {
+	font-size: 24px;
+	margin: 0;
+}
+
+.event-info,
+.location-date {
+	text-align: center;
+	color: #aaa;
+	margin-bottom: 15px;
+}
+
+.location {
+	color: #0af;
+}
+
+.select-ticket {
+	margin-bottom: 20px;
+}
+
+.ticket-type-title {
+	font-size: 16px;
+	margin-bottom: 10px;
+	color: #ddd;
+}
+
+.ticket-options {
+	display: grid;
+	grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+	gap: 10px;
+	margin-bottom: 20px;
+}
+
+.ticket-option {
+	background: #333;
+	color: #eee;
+	border: none;
+	padding: 15px;
+	border-radius: 5px;
+	cursor: pointer;
+	text-align: left;
+	display: flex;
+	flex-direction: column;
+	align-items: flex-start;
+	transition: background-color 0.3s;
+}
+
+.ticket-option:hover {
+	background: #444;
+}
+
+.ticket-option.selected {
+	background: #0af;
+	color: #111;
+}
+
+.ticket-label {
+	font-weight: bold;
+	margin-bottom: 5px;
+}
+
+.ticket-price {
+	font-size: 14px;
+	color: #888;
+}
+
+.ticket-availability {
+	font-size: 12px;
+	color: #666;
+}
+
+.num-tickets {
+	margin-bottom: 20px;
+}
+
+.num-tickets label {
+	display: block;
+	margin-bottom: 5px;
+	color: #ddd;
+}
+
+.num-tickets select {
+	width: 100%;
+	padding: 10px;
+	border: 1px solid #555;
+	background: #333;
+	color: #eee;
+	border-radius: 5px;
+}
+
+.buttons {
+	display: flex;
+	justify-content: space-between;
+}
+
+.cancel-button,
+.next-button {
+	padding: 10px 20px;
+	border: none;
+	border-radius: 5px;
+	cursor: pointer;
+	transition: background-color 0.3s;
+}
+
+.cancel-button {
+	background: #555;
+	color: #eee;
+}
+
+.cancel-button:hover {
+	background: #666;
+}
+
+.next-button {
+	background: #0af;
+	color: #111;
+}
+
+.next-button:disabled {
+	background: #888;
+	cursor: not-allowed;
+	color: #111;
+}
