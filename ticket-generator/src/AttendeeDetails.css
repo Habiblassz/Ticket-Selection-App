@@ -1,18 +1,18 @@
-/* AttendeeDetails.css */
 .attendee-details {
 	display: flex;
 	justify-content: center;
 	align-items: center;
 	min-height: 95vh;
-	background: #111;
 	font-family: sans-serif;
-	color: #eee;
+	color: #fff;
 }
 
 .details-container {
-	background: #222;
+	border: 0.5px solid #2ba0b5;
+	/* background: #02191d; */
+	background: #08252b;
 	padding: 30px;
-	border-radius: 10px;
+	border-radius: 1rem;
 	box-shadow: 0 5px 10px rgba(0, 0, 0, 0.2);
 	width: 400px;
 }
@@ -32,35 +32,52 @@
 	height: 100%;
 }
 
+.attendee-details .header .flex-header span {
+	padding: 0.8rem;
+	font-size: 0.7rem;
+}
+
 .attendee-details .progress-bar {
 	width: 66.66%;
 	height: 1.5px;
-	background-color: #0af;
+	background-color: #2ba0b5;
 	border-radius: 5px;
 	margin-top: 7px;
 	margin-bottom: 10px;
 }
 
-.step {
-	font-size: 14px;
-	color: #888;
-	align-self: flex-end;
-}
-
-.title {
-	font-size: 24px;
-	margin: 0;
-}
-
 .upload-area {
 	margin-bottom: 20px;
 	text-align: center;
-	border: 2px dashed #555;
-	padding: 20px;
+	border: 0.5px solid #2ba0b5;
+	padding: 2rem;
 	border-radius: 10px;
 	cursor: pointer;
-	position: relative; /* Needed for absolute positioning of preview */
-	overflow: hidden; /* Hide overflowing preview */
+	position: relative;
+	height: 7rem;
+}
+
+.upload-area p {
+	text-align: left;
+	font-size: 0.8rem;
+	margin-top: -1.5rem;
+	margin-bottom: 1.2rem;
+}
+
+.upload-area .inner-box {
+	/* border: 0.5px solid #2ba0b5; */
+	height: 100%;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+}
+
+.upload-area .inner-box .inner-smaller-box {
+	border: 2px solid #2ba0b5;
+	background-color: #0e464f;
+	height: 120%;
+	width: 60%;
+	border-radius: 1.2rem;
 }
 
 .upload-label {
@@ -76,15 +93,16 @@
 	justify-content: center;
 }
 
-.upload-icon {
+.upload-area .upload-icon {
 	margin-bottom: 10px;
-	display: flex; /* Center the SVG */
+	display: flex;
 	justify-content: center;
 	align-items: center;
 }
 
-.upload-text {
-	color: #aaa;
+.upload-area .upload-text {
+	color: #fff;
+	font-size: 0.7rem;
 }
 
 .avatar-input {
@@ -97,7 +115,7 @@
 	left: 10px;
 	width: calc(100% - 20px);
 	height: calc(100% - 20px);
-	overflow: hidden;
+	/* overflow: hidden; */
 	border-radius: 5px;
 }
 
@@ -114,22 +132,24 @@
 .form-group label {
 	display: block;
 	margin-bottom: 5px;
-	color: #ddd;
+	color: #fff;
+	text-align: left;
+	font-size: 0.8rem;
 }
 
 .form-group input,
 .project-textarea {
-	width: 100%;
+	width: 95%;
 	padding: 10px;
-	border: 1px solid #555;
-	background: #333;
+	border: 0.5px solid #2ba0b5;
+	background: transparent;
 	color: #eee;
 	border-radius: 5px;
 }
 
 .project-textarea {
-	resize: vertical;
-	min-height: 100px;
+	resize: none;
+	min-height: 60px;
 }
 
 .buttons {
@@ -139,6 +159,7 @@
 
 .back-button,
 .submit-button {
+	width: 48%;
 	padding: 10px 20px;
 	border: none;
 	border-radius: 5px;
@@ -147,17 +168,19 @@
 }
 
 .back-button {
-	background: #555;
-	color: #eee;
+	background: transparent;
+	color: #2ba0b5;
+	border: 0.5px solid #2ba0b5;
 }
 
 .back-button:hover {
-	background: #666;
+	background: #2ba0b5;
+	color: #fff;
 }
 
 .submit-button {
-	background: #0af;
-	color: #111;
+	background: #2ba0b5;
+	color: #fff;
 }
 
 .error {
