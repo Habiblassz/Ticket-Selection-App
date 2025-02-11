@@ -57,20 +57,6 @@ const AttendeeDetails = ({ onBack, onSubmit, ticketQuantity }) => {
 						<div className="inner-smaller-box">
 							<label htmlFor="avatar-upload" className="upload-label">
 								<div className="upload-icon">
-									{/* <svg
-									xmlns="http://www.w3.org/2000/svg"
-									width="30"
-									height="30"
-									viewBox="0 0 24 24"
-									fill="none"
-									stroke="#ddd"
-									strokeWidth="2"
-									strokeLinecap="round"
-									strokeLinejoin="round">
-									<path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"></path>
-									<polyline points="17 9 12 4 7 9"></polyline>
-									<line x1="12" y1="4" x2="12" y2="16"></line>
-									</svg> */}
 									<svg
 										xmlns="http://www.w3.org/2000/svg"
 										width="16"
@@ -101,7 +87,7 @@ const AttendeeDetails = ({ onBack, onSubmit, ticketQuantity }) => {
 					)}
 				</div>
 				{errors.avatar && <p className="error">{errors.avatar}</p>}
-
+				<div className="horizontal-line"></div>
 				<div className="form-group">
 					<label htmlFor="name">Enter your name</label>
 					<input

@@ -1,20 +1,20 @@
-/* TicketGeneration.css */
 .ticket-generation {
 	display: flex;
 	justify-content: center;
 	align-items: center;
 	min-height: 95vh;
-	background: #111;
+	background: #02191d;
 	font-family: sans-serif;
 	color: #eee;
 }
 
 .generation-container {
-	background: #222;
+	background: #02191d;
 	padding: 30px;
 	border-radius: 10px;
 	box-shadow: 0 5px 10px rgba(0, 0, 0, 0.2);
 	width: 400px;
+	border: 1px solid #2ba0b5;
 }
 
 .ticket-generation .header {
@@ -50,15 +50,11 @@
 .title {
 	font-size: 24px;
 	margin: 0;
+	color: #0af;
 }
 
 .content {
 	text-align: center;
-}
-
-.booked-message {
-	font-size: 20px;
-	margin-bottom: 10px;
 }
 
 .download-info {
@@ -67,12 +63,13 @@
 }
 
 .ticket {
-	background: #333;
+	background: #02191d;
 	padding: 20px;
 	border-radius: 10px;
 	margin-bottom: 20px;
 	display: flex;
 	align-items: center;
+	border: 1px solid #2ba0b5;
 }
 
 .qr-code {
@@ -87,29 +84,54 @@
 .event-title {
 	font-size: 18px;
 	font-weight: bold;
-	margin-bottom: 5px;
+	margin-bottom: 10px;
+	color: #0af;
+}
+
+.location-date {
+	margin-bottom: 10px;
+}
+
+.location,
+.date-time {
+	margin: 0;
+	color: #aaa;
 }
 
 .user-info {
+	margin-bottom: 10px;
+}
+
+.user-name,
+.user-email {
+	margin: 0;
+	color: #eee;
+}
+
+.ticket-type-info {
 	display: flex;
 	justify-content: space-between;
 	margin-bottom: 10px;
 }
 
-.user-name {
-	font-weight: bold;
+.ticket-type,
+.ticket-for {
+	margin: 0;
+	color: #0af;
 }
 
-.ticket-type {
-	background: #0af;
-	color: #111;
-	padding: 5px 10px;
-	border-radius: 5px;
+.special-request {
+	margin-bottom: 10px;
 }
 
-.ticket-note {
-	font-size: 14px;
-	color: #888;
+.request-label {
+	margin: 0;
+	color: #aaa;
+}
+
+.request-text {
+	margin: 0;
+	color: #eee;
 }
 
 .buttons {

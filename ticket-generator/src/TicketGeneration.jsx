@@ -1,4 +1,3 @@
-// TicketGeneration.jsx
 import React from "react";
 import "./TicketGeneration.css";
 import QRCode from "react-qr-code";
@@ -38,9 +37,9 @@ const TicketGeneration = ({ ticketDetails, onBookAnother, ticketQuantity }) => {
 				</div>
 
 				<div className="content">
-					<p className="booked-message">Your Ticket is Booked!</p>
+					<h2>Your Ticket is Booked!</h2>
 					<p className="download-info">
-						You can download or check your email for a copy.
+						Check your email for a copy or you can download
 					</p>
 
 					<div className="ticket">
@@ -52,17 +51,24 @@ const TicketGeneration = ({ ticketDetails, onBookAnother, ticketQuantity }) => {
 						</div>
 						<div className="ticket-details">
 							<div className="event-title">Techember Fest "25</div>
-							<div className="user-info">
-								<p className="user-name">User Name: {ticketDetails.name}</p>
-								<p className="ticket-type">{ticketDetails.type}</p>
-							</div>
 							<div className="location-date">
-								<p className="location">↑ 04 Rumens road, Ikoyi, Lagos</p>
-								<p className="date-time">March 15, 2025 | 7:00 PM</p>
+								<p className="location">04 Rumens road, Novi, Lagos</p>
+								<p className="date-time">March 15, 2025 | 17:00 PM</p>
 							</div>
-							<p className="ticket-note">
-								Ticket for {ticketQuantity} entry only
-							</p>
+							<div className="user-info">
+								<p className="user-name">{ticketDetails.name}</p>
+								<p className="user-email">{ticketDetails.email}</p>
+							</div>
+							<div className="ticket-type-info">
+								<p className="ticket-type">{ticketDetails.type}</p>
+								<p className="ticket-for">Ticket for: {ticketQuantity}</p>
+							</div>
+							<div className="special-request">
+								<p className="request-label">Special request?</p>
+								<p className="request-text">
+									{ticketDetails.specialRequest || "Nil"}
+								</p>
+							</div>
 						</div>
 					</div>
 

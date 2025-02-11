@@ -2,15 +2,19 @@ import React, { useState } from "react";
 import TicketSelection from "./TicketSelection";
 import AttendeeDetails from "./AttendeeDetails";
 import TicketGeneration from "./TicketGeneration";
-import "./App.css";
 
 const App = () => {
 	const [step, setStep] = useState(1);
-	const [ticketType, setTicketType] = useState("");
-	const [ticketDetails, setTicketDetails] = useState(null);
+	const [ticketDetails, setTicketDetails] = useState({
+		type: "",
+		quantity: 1,
+		name: "",
+		email: "",
+		specialRequest: "",
+	});
 
-	const handleNextStep = (type) => {
-		setTicketType(type);
+	const handleNext = (data) => {
+		setTicketDetails((prev) => ({ ...prev, ...data }));
 		setStep(2);
 	};
 
@@ -18,26 +22,42 @@ const App = () => {
 		setStep(1);
 	};
 
-	const handleSubmitDetails = (details) => {
-		setTicketDetails(details);
+	const handleSubmit = (formData) => {
+		setTicketDetails((prev) => ({
+			...prev,
+			name: formData.get("name"),
+			email: formData.get("email"),
+			specialRequest: formData.get("project"),
+		}));
 		setStep(3);
 	};
 
 	const handleBookAnother = () => {
+		setTicketDetails({
+			type: "",
+			quantity: 1,
+			name: "",
+			email: "",
+			specialRequest: "",
+		});
 		setStep(1);
-		setTicketDetails(null);
 	};
 
 	return (
 		<div className="app">
-			{step === 1 && <TicketSelection onNext={handleNextStep} />}
+			{step === 1 && <TicketSelection onNext={handleNext} />}
 			{step === 2 && (
-				<AttendeeDetails onBack={handleBack} onSubmit={handleSubmitDetails} />
+				<AttendeeDetails
+					onBack={handleBack}
+					onSubmit={handleSubmit}
+					ticketQuantity={ticketDetails.quantity}
+				/>
 			)}
 			{step === 3 && (
 				<TicketGeneration
 					ticketDetails={ticketDetails}
 					onBookAnother={handleBookAnother}
+					ticketQuantity={ticketDetails.quantity}
 				/>
 			)}
 		</div>
