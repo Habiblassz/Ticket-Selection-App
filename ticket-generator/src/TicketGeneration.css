@@ -20,14 +20,14 @@
 .ticket-generation .header {
 	display: flex;
 	flex-direction: column;
-	align-items: flex-start;
+	/* align-items: flex-start; */
 	margin-bottom: 20px;
 }
 
 .ticket-generation .header .flex-header {
 	display: flex;
 	justify-content: space-between;
-	align-items: center;
+	/* align-items: center; */
 	width: 100%;
 	height: 100%;
 }
@@ -35,13 +35,13 @@
 .ticket-generation .progress-bar {
 	width: 100%;
 	height: 1.5px;
-	background-color: #0af;
+	background-color: #2ba0b5;
 	border-radius: 5px;
 	margin-top: 7px;
 	margin-bottom: 10px;
 }
 
-.step {
+/* .step {
 	font-size: 14px;
 	color: #888;
 	align-self: flex-end;
@@ -60,36 +60,58 @@
 .download-info {
 	color: #aaa;
 	margin-bottom: 20px;
-}
+} */
 
 .ticket {
 	background: #02191d;
 	padding: 20px;
 	border-radius: 10px;
 	margin-bottom: 20px;
-	display: flex;
-	align-items: center;
+	display: inline-block;
 	border: 1px solid #2ba0b5;
+	position: relative;
 }
 
-.qr-code {
+.ticket .ticket-background {
+	display: block;
+	width: 100%;
+	height: 28.5rem;
+}
+
+/* .qr-code {
 	margin-right: 20px;
-}
+} */
 
-.ticket-details {
-	text-align: left;
+.ticket .ticket-details {
+	border: 0.5px solid #2ba0b5;
+	border-radius: 0.9rem;
+	position: absolute;
+	width: 65%;
+	padding: 1rem;
+	top: 20%;
+	left: 50%;
+	transform: translate(-50%, -20%);
 	flex-grow: 1;
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+	align-items: center;
 }
 
-.event-title {
-	font-size: 18px;
+.ticket .event-title {
+	font-size: 1.2rem;
 	font-weight: bold;
-	margin-bottom: 10px;
-	color: #0af;
+	margin-bottom: 5px;
+	color: #fff;
+	width: 100%;
+	text-align: center;
 }
 
-.location-date {
+.ticket .location-date {
 	margin-bottom: 10px;
+	font-size: 0.6rem;
+	width: 100%;
+	text-align: center;
 }
 
 .location,
@@ -98,45 +120,81 @@
 	color: #aaa;
 }
 
-.user-info {
-	margin-bottom: 10px;
+.ticket .user-info-container {
+	width: 100%;
+	background-color: #072c31;
+	border: 0.5px solid rgba(255, 255, 255, 0.3);
+	padding: 0.5rem;
+	border-radius: 0.5rem;
+	box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
 }
 
-.user-name,
-.user-email {
-	margin: 0;
-	color: #eee;
-}
-
-.ticket-type-info {
+.ticket .user-info,
+.ticket .ticket-type-info {
 	display: flex;
 	justify-content: space-between;
-	margin-bottom: 10px;
+	font-size: 0.65rem;
+	width: 100%;
+	margin: 5px;
+	border-bottom: 0.3px solid rgba(255, 255, 255, 0.3);
+	padding-bottom: 7px;
+	position: relative;
 }
 
-.ticket-type,
-.ticket-for {
-	margin: 0;
-	color: #0af;
+.ticket .user-info .user-email:before {
+	content: "";
+	width: 0.5px;
+	height: 210%;
+	background-color: rgba(255, 255, 255, 0.3);
+	position: absolute;
+	right: 55%;
+}
+
+.ticket .user-info .user-name,
+.ticket .user-info .user-email,
+.ticket .ticket-type,
+.ticket .ticket-for {
+	display: flex;
+	flex-direction: column;
+	justify-content: space-between;
+	height: 2.6rem;
+	width: 100%;
+	text-align: left;
+	/* border-left: 0.5px solid #2ba0b5;
+	padding-left: 7px;
+	margin-left: -5px; */
+}
+
+.ticket .user-info .user-name .top,
+.ticket .user-info .user-email .top,
+.ticket .ticket-type .top,
+.ticket .ticket-for .top,
+.special-request .top {
+	color: rgba(255, 255, 255, 0.3);
+	font-size: 0.6rem;
+}
+.ticket .bottom {
+	font-weight: bold;
 }
 
 .special-request {
-	margin-bottom: 10px;
+	display: flex;
+	flex-direction: column;
+	gap: 5px;
+	text-align: left;
+	padding-left: 0.3rem;
 }
 
-.request-label {
-	margin: 0;
-	color: #aaa;
-}
-
-.request-text {
-	margin: 0;
-	color: #eee;
+.special-request .bottom {
+	font-size: 0.62rem;
+	font-weight: bold;
+	margin-bottom: 1rem;
 }
 
 .buttons {
 	display: flex;
 	justify-content: space-between;
+	gap: 1rem;
 }
 
 .book-another-button,
@@ -146,18 +204,21 @@
 	border-radius: 5px;
 	cursor: pointer;
 	transition: background-color 0.3s;
+	width: 50%;
 }
 
 .book-another-button {
-	background: #555;
-	color: #eee;
+	background: transparent;
+	color: #2ba0b5;
+	border: 0.5px solid #2ba0b5;
 }
 
 .book-another-button:hover {
-	background: #666;
+	background: #2ba0b5;
+	color: #fff;
 }
 
 .download-button {
-	background: #0af;
-	color: #111;
+	background: #2ba0b5;
+	color: #fff;
 }

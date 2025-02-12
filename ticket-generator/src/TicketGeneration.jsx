@@ -1,6 +1,7 @@
 import React from "react";
 import "./TicketGeneration.css";
 import QRCode from "react-qr-code";
+import background from "./assets/bg.png";
 
 const TicketGeneration = ({ ticketDetails, onBookAnother, ticketQuantity }) => {
 	const downloadTicket = () => {
@@ -43,31 +44,46 @@ const TicketGeneration = ({ ticketDetails, onBookAnother, ticketQuantity }) => {
 					</p>
 
 					<div className="ticket">
-						<div className="qr-code">
+						{/* <div className="qr-code">
 							<QRCode
 								value={`${ticketDetails.name} - ${ticketDetails.type} - ${ticketDetails.email} - ${ticketQuantity}`}
 								size={100}
 							/>
-						</div>
+						</div> */}
+						<img src={background} alt="ticket" className="ticket-background" />
 						<div className="ticket-details">
 							<div className="event-title">Techember Fest "25</div>
 							<div className="location-date">
-								<p className="location">04 Rumens road, Novi, Lagos</p>
+								<p className="location">📍 04 Rumens road, Novi, Lagos</p>
 								<p className="date-time">March 15, 2025 | 17:00 PM</p>
 							</div>
-							<div className="user-info">
-								<p className="user-name">{ticketDetails.name}</p>
-								<p className="user-email">{ticketDetails.email}</p>
-							</div>
-							<div className="ticket-type-info">
-								<p className="ticket-type">{ticketDetails.type}</p>
-								<p className="ticket-for">Ticket for: {ticketQuantity}</p>
-							</div>
-							<div className="special-request">
-								<p className="request-label">Special request?</p>
-								<p className="request-text">
-									{ticketDetails.specialRequest || "Nil"}
-								</p>
+							<div className="user-info-container">
+								<div className="user-info">
+									<div className="user-name">
+										<div className="top">Enter your name</div>
+										<div className="bottom">{ticketDetails.name}</div>
+									</div>
+									<div className="user-email">
+										<div className="top">Enter your email*</div>
+										<div className="bottom">{ticketDetails.email}</div>
+									</div>
+								</div>
+								<div className="ticket-type-info">
+									<div className="ticket-type">
+										<div className="top">Ticket type</div>
+										<div className="bottom">{ticketDetails.type}</div>
+									</div>
+									<div className="ticket-for">
+										<div className="top">Ticket for: </div>
+										<div className="bottom">{ticketQuantity}</div>
+									</div>
+								</div>
+								<div className="special-request">
+									<div className="request-label top">Special request?</div>
+									<div className="request-text bottom">
+										{ticketDetails.specialRequest || "Nil"}
+									</div>
+								</div>
 							</div>
 						</div>
 					</div>

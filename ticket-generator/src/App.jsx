@@ -2,6 +2,7 @@ import React, { useState } from "react";
 import TicketSelection from "./TicketSelection";
 import AttendeeDetails from "./AttendeeDetails";
 import TicketGeneration from "./TicketGeneration";
+import "./App.css";
 
 const App = () => {
 	const [step, setStep] = useState(1);

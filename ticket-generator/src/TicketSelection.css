@@ -76,11 +76,11 @@
 .ticket-selection .event-block {
 	border: 0.5px solid #2ba0b5;
 	background: radial-gradient(
-			52.52% 32.71% at 50% 97.66%,
+			103.64% 57.39% at 14.02% 32.06%,
 			rgba(36, 160, 181, 0.2) 0%,
 			rgba(36, 160, 181, 0) 100%
 		),
-		#02191d;
+		rgba(10, 12, 17, 0.1);
 	border-radius: 1rem;
 }
 
