@@ -1,6 +1,5 @@
 import React from "react";
 import "./TicketGeneration.css";
-import QRCode from "react-qr-code";
 import background from "./assets/bg.png";
 
 const TicketGeneration = ({ ticketDetails, onBookAnother, ticketQuantity }) => {
@@ -42,14 +41,7 @@ const TicketGeneration = ({ ticketDetails, onBookAnother, ticketQuantity }) => {
 					<p className="download-info">
 						Check your email for a copy or you can download
 					</p>
-
 					<div className="ticket">
-						{/* <div className="qr-code">
-							<QRCode
-								value={`${ticketDetails.name} - ${ticketDetails.type} - ${ticketDetails.email} - ${ticketQuantity}`}
-								size={100}
-							/>
-						</div> */}
 						<img src={background} alt="ticket" className="ticket-background" />
 						<div className="ticket-details">
 							<div className="event-title">Techember Fest "25</div>
@@ -57,6 +49,15 @@ const TicketGeneration = ({ ticketDetails, onBookAnother, ticketQuantity }) => {
 								<p className="location">📍 04 Rumens road, Novi, Lagos</p>
 								<p className="date-time">March 15, 2025 | 17:00 PM</p>
 							</div>
+							{ticketDetails.avatar && (
+								<div className="avatar-container">
+									<img
+										src={URL.createObjectURL(ticketDetails.avatar)}
+										alt="User Avatar"
+										className="user-avatar"
+									/>
+								</div>
+							)}
 							<div className="user-info-container">
 								<div className="user-info">
 									<div className="user-name">
