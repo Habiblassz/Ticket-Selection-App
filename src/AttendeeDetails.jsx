@@ -29,8 +29,6 @@ const AttendeeDetails = ({ onBack, onSubmit, ticketQuantity }) => {
 
 		const uploadedImageURL = await res.json();
 
-		console.log(uploadedImageURL.url);
-
 		setLoading(false);
 
 		setAvatar(uploadedImageURL.url);

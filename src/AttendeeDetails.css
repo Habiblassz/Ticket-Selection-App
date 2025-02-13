@@ -153,13 +153,13 @@
 	min-height: 60px;
 }
 
-.buttons {
+.details-container .buttons {
 	display: flex;
 	justify-content: space-between;
 }
 
-.back-button,
-.submit-button {
+.details-container .back-button,
+.details-container .submit-button {
 	width: 48%;
 	padding: 10px 20px;
 	border: none;
@@ -168,24 +168,48 @@
 	transition: background-color 0.3s;
 }
 
-.back-button {
+.details-container .back-button {
 	background: transparent;
 	color: #2ba0b5;
 	border: 0.5px solid #2ba0b5;
 }
 
-.back-button:hover {
+.details-container .back-button:hover {
 	background: #2ba0b5;
 	color: #fff;
 }
 
-.submit-button {
+.details-container .submit-button {
 	background: #2ba0b5;
 	color: #fff;
 }
 
-.error {
+.details-container .error {
 	color: red;
 	font-size: 12px;
 	margin-top: 5px;
+}
+
+@media screen and (max-width: 600px) {
+	.upload-area .inner-box .inner-smaller-box {
+		width: 100%;
+	}
+
+	.avatar-preview {
+		width: 100%;
+		left: 0;
+		border-radius: inherit;
+	}
+
+	.details-container .buttons {
+		flex-direction: column;
+	}
+	.details-container .back-button,
+	.details-container .submit-button {
+		width: 99%;
+	}
+
+	.details-container .back-button {
+		order: 2;
+	}
 }
