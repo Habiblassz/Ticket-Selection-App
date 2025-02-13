@@ -266,4 +266,8 @@
 	.ticket-container .next-button {
 		width: 99%;
 	}
+
+	.ticket-container .cancel-button {
+		order: 2;
+	}
 }
