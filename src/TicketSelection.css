@@ -11,7 +11,7 @@
 .ticket-container {
 	background: #08252b;
 	border: 0.5px solid #2ba0b5;
-	padding: 30px;
+	padding: 1rem 1rem 4rem 1rem;
 	border-radius: 20px;
 	box-shadow: 0 5px 10px rgba(0, 0, 0, 0.2);
 	width: 400px;
@@ -120,7 +120,7 @@
 
 .ticket-options {
 	display: grid;
-	grid-template-columns: repeat(auto-fit, minmax(65px, 1fr));
+	grid-template-columns: repeat(auto-fit, minmax(80px, 1fr));
 	gap: 10px;
 	margin-bottom: 20px;
 	flex-direction: column;
@@ -249,4 +249,21 @@
 
 .ticket-container .next-button:disabled {
 	cursor: not-allowed;
+}
+
+@media screen and (max-width: 550px) {
+	.ticket-options {
+		grid-template-columns: 1fr;
+		padding: 10px;
+		gap: 1rem;
+	}
+
+	.ticket-container .buttons {
+		flex-direction: column;
+	}
+
+	.ticket-container .cancel-button,
+	.ticket-container .next-button {
+		width: 99%;
+	}
 }
