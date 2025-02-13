@@ -40,6 +40,9 @@ const TicketGeneration = ({ ticketDetails, onBookAnother, ticketQuantity }) => {
 					<p className="download-info">
 						Check your email for a copy or you can download
 					</p>
+					<p className="small-screen">
+						You can download or Check your email for a copy
+					</p>
 					<div className="ticket">
 						<img src={background} alt="ticket" className="ticket-background" />
 						<div className="ticket-details">
