@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import "./AttendeeDetails.css";
 
-const AttendeeDetails = ({ onBack, onSubmit, ticketQuantity }) => {
+const AttendeeDetails = ({ onBack, onSubmit, ticketQuantity, initialData }) => {
 	const [name, setName] = useState("");
 	const [email, setEmail] = useState("");
 	const [avatar, setAvatar] = useState(null);
@@ -120,6 +120,8 @@ const AttendeeDetails = ({ onBack, onSubmit, ticketQuantity }) => {
 						id="name"
 						value={name}
 						onChange={(e) => setName(e.target.value)}
+						aria-label="Enter your name"
+						aria-describedby="name-error"
 					/>
 					{errors.name && <p className="error">{errors.name}</p>}
 				</div>
@@ -132,6 +134,8 @@ const AttendeeDetails = ({ onBack, onSubmit, ticketQuantity }) => {
 						value={email}
 						placeholder="✉️  hello@avioflagos.io"
 						onChange={(e) => setEmail(e.target.value)}
+						aria-label="Enter your email"
+						aria-describedby="email-error"
 					/>
 					{errors.email && <p className="error">{errors.email}</p>}
 				</div>
@@ -143,6 +147,8 @@ const AttendeeDetails = ({ onBack, onSubmit, ticketQuantity }) => {
 						className="project-textarea"
 						value={project}
 						placeholder="Textarea"
+						arial-label="Special request"
+						aria-describedby="special-request-error"
 						onChange={(e) => setProject(e.target.value)}></textarea>
 				</div>
 

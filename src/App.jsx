@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import TicketSelection from "./TicketSelection";
 import AttendeeDetails from "./AttendeeDetails";
 import TicketGeneration from "./TicketGeneration";
@@ -15,6 +15,19 @@ const App = () => {
 		specialRequest: "",
 		avatar: null, // Add avatar to the state
 	});
+
+	// Load data from local storage when the component mounts
+	useEffect(() => {
+		const savedData = localStorage.getItem("ticketDetails");
+		if (savedData) {
+			setTicketDetails(JSON.parse(savedData));
+		}
+	}, []);
+
+	// Save data to local storage whenever it changes
+	useEffect(() => {
+		localStorage.setItem("ticketDetails", JSON.stringify(ticketDetails));
+	}, [ticketDetails]);
 
 	const handleNext = (data) => {
 		setTicketDetails((prev) => ({ ...prev, ...data }));
@@ -45,6 +58,8 @@ const App = () => {
 			specialRequest: "",
 			avatar: null, // Reset avatar
 		});
+
+		localStorage.removeItem("ticketDetails"); // Clear local storage
 		setStep(1);
 	};
 
@@ -70,6 +85,12 @@ const App = () => {
 						onBack={handleBack}
 						onSubmit={handleSubmit}
 						ticketQuantity={ticketDetails.quantity}
+						initialData={{
+							name: ticketDetails.name,
+							email: ticketDetails.email,
+							project: ticketDetails.specialRequest,
+							avatar: ticketDetails.avatar,
+						}}
 					/>
 				)}
 				{step === 3 && (

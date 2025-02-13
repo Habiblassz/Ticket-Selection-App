@@ -1,27 +1,20 @@
 import React from "react";
 import "./TicketGeneration.css";
 import background from "./assets/bg.png";
+import html2canvas from "html2canvas";
 
 const TicketGeneration = ({ ticketDetails, onBookAnother, ticketQuantity }) => {
 	const downloadTicket = () => {
-		// const ticketContent = `
-		//           Techember Fest "25
-		//           User Name: ${ticketDetails.name}
-		//           Ticket Type: ${ticketDetails.type}
-		//           ${ticketDetails.extraInfo ? ticketDetails.extraInfo : ""}
-		//           ↑ 04 Rumens road, Ikoyi, Lagos
-		//           March 15, 2025 | 7:00 PM
-		//       `;
-		// const blob = new Blob([ticketContent], { type: "text/plain" });
-		// const url = window.URL.createObjectURL(blob);
-		// const a = document.createElement("a");
-		// a.href = url;
-		// a.download = "ticket.txt";
-		// a.style.display = "none";
-		// document.body.appendChild(a);
-		// a.click();
-		// window.URL.revokeObjectURL(url);
-		// document.body.removeChild(a);
+		const ticketElement = document.querySelector(".ticket");
+		html2canvas(ticketElement).then((canvas) => {
+			const imgData = canvas.toDataURL("image/png");
+			const link = document.createElement("a");
+			link.href = imgData;
+			link.download = "ticket.png";
+			document.body.appendChild(link);
+			link.click();
+			document.body.removeChild(link);
+		});
 	};
 
 	return (

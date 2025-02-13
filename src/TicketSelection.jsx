@@ -1,9 +1,18 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import "./TicketSelection.css";
 
 const TicketSelection = ({ onNext }) => {
 	const [ticketType, setTicketType] = useState(null);
 	const [numTickets, setNumTickets] = useState(1);
+
+	useEffect(() => {
+		const savedData = localStorage.getItem("ticketDetails");
+		if (savedData) {
+			const { type, quantity } = JSON.parse(savedData);
+			setTicketType(type);
+			setNumTickets(quantity);
+		}
+	}, []);
 
 	const handleNext = () => {
 		if (ticketType) {
