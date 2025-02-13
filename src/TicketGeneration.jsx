@@ -4,25 +4,24 @@ import background from "./assets/bg.png";
 
 const TicketGeneration = ({ ticketDetails, onBookAnother, ticketQuantity }) => {
 	const downloadTicket = () => {
-		const ticketContent = `
-            Techember Fest "25
-            User Name: ${ticketDetails.name}
-            Ticket Type: ${ticketDetails.type}
-            ${ticketDetails.extraInfo ? ticketDetails.extraInfo : ""}
-            ↑ 04 Rumens road, Ikoyi, Lagos
-            March 15, 2025 | 7:00 PM
-        `;
-
-		const blob = new Blob([ticketContent], { type: "text/plain" });
-		const url = window.URL.createObjectURL(blob);
-		const a = document.createElement("a");
-		a.href = url;
-		a.download = "ticket.txt";
-		a.style.display = "none";
-		document.body.appendChild(a);
-		a.click();
-		window.URL.revokeObjectURL(url);
-		document.body.removeChild(a);
+		// const ticketContent = `
+		//           Techember Fest "25
+		//           User Name: ${ticketDetails.name}
+		//           Ticket Type: ${ticketDetails.type}
+		//           ${ticketDetails.extraInfo ? ticketDetails.extraInfo : ""}
+		//           ↑ 04 Rumens road, Ikoyi, Lagos
+		//           March 15, 2025 | 7:00 PM
+		//       `;
+		// const blob = new Blob([ticketContent], { type: "text/plain" });
+		// const url = window.URL.createObjectURL(blob);
+		// const a = document.createElement("a");
+		// a.href = url;
+		// a.download = "ticket.txt";
+		// a.style.display = "none";
+		// document.body.appendChild(a);
+		// a.click();
+		// window.URL.revokeObjectURL(url);
+		// document.body.removeChild(a);
 	};
 
 	return (
@@ -52,7 +51,7 @@ const TicketGeneration = ({ ticketDetails, onBookAnother, ticketQuantity }) => {
 							{ticketDetails.avatar && (
 								<div className="avatar-container">
 									<img
-										src={URL.createObjectURL(ticketDetails.avatar)}
+										src={ticketDetails.avatar}
 										alt="User Avatar"
 										className="user-avatar"
 									/>

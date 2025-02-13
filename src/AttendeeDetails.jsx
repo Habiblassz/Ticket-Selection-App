@@ -7,10 +7,33 @@ const AttendeeDetails = ({ onBack, onSubmit, ticketQuantity }) => {
 	const [avatar, setAvatar] = useState(null);
 	const [project, setProject] = useState("");
 	const [errors, setErrors] = useState({});
+	const [loading, setLoading] = useState(false);
 
-	const handleAvatarChange = (e) => {
+	const handleAvatarChange = async (e) => {
 		const file = e.target.files[0];
-		setAvatar(file);
+
+		if (!file) return;
+		setLoading(true);
+		const data = new FormData();
+		data.append("file", file);
+		data.append("upload_preset", "ticket_generator_avatar");
+		data.append("cloud_name", "dongyfnhc");
+
+		const res = await fetch(
+			`https://api.cloudinary.com/v1_1/dongyfnhc/image/upload`,
+			{
+				method: "POST",
+				body: data,
+			}
+		);
+
+		const uploadedImageURL = await res.json();
+
+		console.log(uploadedImageURL.url);
+
+		setLoading(false);
+
+		setAvatar(uploadedImageURL.url);
 	};
 
 	const handleSubmit = () => {
@@ -82,7 +105,11 @@ const AttendeeDetails = ({ onBack, onSubmit, ticketQuantity }) => {
 					/>
 					{avatar && (
 						<div className="avatar-preview">
-							<img src={URL.createObjectURL(avatar)} alt="Avatar Preview" />
+							{loading ? (
+								<p>Loading...</p>
+							) : (
+								<img src={avatar} alt="Avatar Preview" />
+							)}
 						</div>
 					)}
 				</div>
