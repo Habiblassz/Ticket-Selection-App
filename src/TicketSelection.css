@@ -55,7 +55,7 @@
 	/* z-index: 100; */
 }
 
-.ticket-selection .progress-bar:after {
+/* .ticket-selection .progress-bar:after {
 	content: "";
 	width: 110%;
 	height: 100%;
@@ -64,7 +64,7 @@
 	top: 0;
 	left: 0;
 	z-index: 0;
-}
+} */
 
 .event-block .event-title {
 	font-size: 2rem;
