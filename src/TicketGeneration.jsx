@@ -6,15 +6,17 @@ import html2canvas from "html2canvas";
 const TicketGeneration = ({ ticketDetails, onBookAnother, ticketQuantity }) => {
 	const downloadTicket = () => {
 		const ticketElement = document.querySelector(".ticket");
-		html2canvas(ticketElement).then((canvas) => {
-			const imgData = canvas.toDataURL("image/png");
-			const link = document.createElement("a");
-			link.href = imgData;
-			link.download = "ticket.png";
-			document.body.appendChild(link);
-			link.click();
-			document.body.removeChild(link);
-		});
+		html2canvas(ticketElement, { allowTaint: true, useCORS: true }).then(
+			(canvas) => {
+				const imgData = canvas.toDataURL("image/png");
+				const link = document.createElement("a");
+				link.href = imgData;
+				link.download = "ticket.png";
+				document.body.appendChild(link);
+				link.click();
+				document.body.removeChild(link);
+			}
+		);
 	};
 
 	return (
