@@ -5,7 +5,9 @@
 	background: #02191d;
 	font-family: sans-serif;
 	color: #eee;
-	padding: 1rem;
+	padding: 1rem 1rem 4rem 1rem;
+	border-radius: 2rem;
+	animation: fadeIn 0.7s ease;
 }
 
 .generation-container {
