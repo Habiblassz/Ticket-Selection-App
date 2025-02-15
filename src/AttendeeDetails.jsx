@@ -2,10 +2,10 @@ import React, { useState } from "react";
 import "./AttendeeDetails.css";
 
 const AttendeeDetails = ({ onBack, onSubmit, ticketQuantity, initialData }) => {
-	const [name, setName] = useState("");
-	const [email, setEmail] = useState("");
-	const [avatar, setAvatar] = useState(null);
-	const [project, setProject] = useState("");
+	const [name, setName] = useState(initialData.name || "");
+	const [email, setEmail] = useState(initialData.email || "");
+	const [avatar, setAvatar] = useState(initialData.avatar || null);
+	const [project, setProject] = useState(initialData.project || "");
 	const [errors, setErrors] = useState({});
 	const [loading, setLoading] = useState(false);
 
@@ -16,11 +16,13 @@ const AttendeeDetails = ({ onBack, onSubmit, ticketQuantity, initialData }) => {
 		setLoading(true);
 		const data = new FormData();
 		data.append("file", file);
-		data.append("upload_preset", "ticket_generator_avatar");
-		data.append("cloud_name", "dongyfnhc");
+		data.append("upload_preset", import.meta.env.VITE_UPLOAD_PRESET);
+		data.append("cloud_name", `${import.meta.env.VITE_CLOUD_NAME}`);
 
 		const res = await fetch(
-			`https://api.cloudinary.com/v1_1/dongyfnhc/image/upload`,
+			`https://api.cloudinary.com/v1_1/${
+				import.meta.env.VITE_CLOUD_NAME
+			}/image/upload`,
 			{
 				method: "POST",
 				body: data,
@@ -28,6 +30,7 @@ const AttendeeDetails = ({ onBack, onSubmit, ticketQuantity, initialData }) => {
 		);
 
 		const uploadedImageURL = await res.json();
+		// console.log(uploadedImageURL);
 
 		setLoading(false);
 
@@ -51,13 +54,12 @@ const AttendeeDetails = ({ onBack, onSubmit, ticketQuantity, initialData }) => {
 		setErrors(newErrors);
 
 		if (Object.keys(newErrors).length === 0) {
-			const formData = new FormData();
-			formData.append("avatar", avatar);
-			formData.append("name", name);
-			formData.append("email", email);
-			formData.append("project", project);
-
-			onSubmit(formData);
+			onSubmit({
+				name,
+				email,
+				specialRequest: project,
+				avatar, // Pass the avatar URL directly
+			});
 		}
 	};
 
@@ -100,6 +102,7 @@ const AttendeeDetails = ({ onBack, onSubmit, ticketQuantity, initialData }) => {
 						className="avatar-input"
 						onChange={handleAvatarChange}
 						accept="image/*"
+						aria-label="upload profile photo"
 					/>
 					{avatar && (
 						<div className="avatar-preview">
@@ -111,7 +114,11 @@ const AttendeeDetails = ({ onBack, onSubmit, ticketQuantity, initialData }) => {
 						</div>
 					)}
 				</div>
-				{errors.avatar && <p className="error">{errors.avatar}</p>}
+				{errors.avatar && (
+					<p className="error" role="alert" aria-describedby="avatar-upload">
+						{errors.avatar}
+					</p>
+				)}
 				<div className="horizontal-line"></div>
 				<div className="form-group">
 					<label htmlFor="name">Enter your name</label>

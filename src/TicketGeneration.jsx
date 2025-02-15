@@ -85,10 +85,16 @@ const TicketGeneration = ({ ticketDetails, onBookAnother, ticketQuantity }) => {
 					</div>
 
 					<div className="buttons">
-						<button className="book-another-button" onClick={onBookAnother}>
+						<button
+							className="book-another-button"
+							onClick={onBookAnother}
+							aria-label="Book Another Ticket">
 							Book Another Ticket
 						</button>
-						<button className="download-button" onClick={downloadTicket}>
+						<button
+							className="download-button"
+							onClick={downloadTicket}
+							aria-label="Download Ticket">
 							Download Ticket
 						</button>
 					</div>

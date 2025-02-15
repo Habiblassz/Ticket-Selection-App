@@ -21,6 +21,16 @@ const App = () => {
 		const savedData = localStorage.getItem("ticketDetails");
 		if (savedData) {
 			setTicketDetails(JSON.parse(savedData));
+		} else {
+			// Initialize with default values only if no data is saved
+			setTicketDetails({
+				type: "",
+				quantity: 1,
+				name: "",
+				email: "",
+				specialRequest: "",
+				avatar: null,
+			});
 		}
 	}, []);
 
@@ -41,10 +51,10 @@ const App = () => {
 	const handleSubmit = (formData) => {
 		setTicketDetails((prev) => ({
 			...prev,
-			name: formData.get("name"),
-			email: formData.get("email"),
-			specialRequest: formData.get("project"),
-			avatar: formData.get("avatar"), // Update avatar in the state
+			name: formData.name,
+			email: formData.email,
+			specialRequest: formData.specialRequest,
+			avatar: formData.avatar, // Update avatar in the state
 		}));
 		setStep(3);
 	};
@@ -75,7 +85,7 @@ const App = () => {
 					<h2>About Project</h2>
 				</div>
 				<div className="right">
-					<button>My Ticket →</button>
+					<button aria-label="View my ticket">My Ticket →</button>
 				</div>
 			</div>
 			<div className="app">

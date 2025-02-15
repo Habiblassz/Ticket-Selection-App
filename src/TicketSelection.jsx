@@ -58,7 +58,8 @@ const TicketSelection = ({ onNext }) => {
 								className={`ticket-option ${
 									ticketType === option.type ? "selected" : ""
 								}`}
-								onClick={() => setTicketType(option.type)}>
+								onClick={() => setTicketType(option.type)}
+								aria-label={`Select ${option.label} ticket`}>
 								<div className="ticket-details">
 									<div className="ticket-price">
 										{option.price === 0 ? "Free" : `$${option.price}`}
@@ -77,7 +78,8 @@ const TicketSelection = ({ onNext }) => {
 						<select
 							id="numTickets"
 							value={numTickets}
-							onChange={(e) => setNumTickets(parseInt(e.target.value, 10))}>
+							onChange={(e) => setNumTickets(parseInt(e.target.value, 10))}
+							aria-describedby="numTicketsDescription">
 							{[...Array(10)].map((_, i) => (
 								<option key={i + 1} value={i + 1}>
 									{i + 1}
