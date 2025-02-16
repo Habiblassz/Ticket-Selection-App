@@ -169,6 +169,18 @@
 	font-weight: bold;
 }
 
+.ticket .barcode {
+	position: absolute;
+	bottom: 5%;
+	left: 20%;
+	max-width: 23rem;
+	overflow: hidden;
+}
+
+.ticket .barcodeSmall {
+	display: none;
+}
+
 .special-request {
 	display: flex;
 	flex-direction: column;
@@ -220,6 +232,10 @@
 		display: none;
 	}
 
+	.ticket .barcode {
+		max-width: 16rem;
+	}
+
 	.content .small-screen {
 		display: block;
 	}
@@ -234,5 +250,26 @@
 
 	.book-another-button {
 		order: 2;
+	}
+}
+
+@media screen and (max-width: 500px) {
+	.ticket .barcode {
+		display: none;
+	}
+	.ticket .barcodeSmall {
+		display: block;
+	}
+	.ticket .barcodeSmall {
+		position: absolute;
+		bottom: 4.5%;
+		left: 30%;
+		max-height: 5rem;
+	}
+}
+
+@media screen and (max-width: 400px) {
+	.ticket .barcodeSmall {
+		left: 25%;
 	}
 }

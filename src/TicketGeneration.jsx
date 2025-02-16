@@ -1,6 +1,8 @@
 import React from "react";
 import "./TicketGeneration.css";
 import background from "./assets/bg.png";
+import barcode from "./assets/barCode.svg";
+import barcodeSmalll from "./assets/barCodeSmall.svg";
 import html2canvas from "html2canvas";
 
 const TicketGeneration = ({ ticketDetails, onBookAnother, ticketQuantity }) => {
@@ -84,6 +86,8 @@ const TicketGeneration = ({ ticketDetails, onBookAnother, ticketQuantity }) => {
 								</div>
 							</div>
 						</div>
+						<img src={barcode} alt="barcode" className="barcode" />
+						<img src={barcodeSmalll} alt="barcode" className="barcodeSmall" />
 					</div>
 
 					<div className="buttons">
