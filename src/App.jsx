@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from "react";
+import { useState, useEffect } from "react";
 import TicketSelection from "./TicketSelection";
 import AttendeeDetails from "./AttendeeDetails";
 import TicketGeneration from "./TicketGeneration";
@@ -13,7 +13,7 @@ const App = () => {
 		name: "",
 		email: "",
 		specialRequest: "",
-		avatar: null, // Add avatar to the state
+		avatar: null,
 	});
 
 	// Load data from local storage when the component mounts
@@ -54,7 +54,7 @@ const App = () => {
 			name: formData.name,
 			email: formData.email,
 			specialRequest: formData.specialRequest,
-			avatar: formData.avatar, // Update avatar in the state
+			avatar: formData.avatar,
 		}));
 		setStep(3);
 	};
@@ -66,7 +66,7 @@ const App = () => {
 			name: "",
 			email: "",
 			specialRequest: "",
-			avatar: null, // Reset avatar
+			avatar: null,
 		});
 
 		localStorage.removeItem("ticketDetails"); // Clear local storage
